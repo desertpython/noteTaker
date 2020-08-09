@@ -20,13 +20,13 @@ app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
   });
 app.get('/api/notes', (req, res)=>{
-    res.sendFile(path.join(__dirname, db))
+    res.sendFile(db , path.join(__dirname, './public/api/notes.html'))
 })
 //Receive new note to save on req.body, add to db.json, then return new route
 app.post('/api/notes', (req, res)=> {
     //write to file 'fs'
     res.send(req.body)
-    fs.writeFile( 'db', JSON.stringify(req.body), (err)=>{
+    fs.writeFile( db, JSON.stringify(req.body), (err)=>{
         if (err) 
         console.log(err); 
         else { 
