@@ -6,8 +6,9 @@ const app = express();
 const PORT = 3001;
 
 // Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('./public'));
 
 
 app.get('/', (req, res) => {
@@ -22,8 +23,8 @@ app.get('/api/notes', (req, res)=>{
 //Receive new note to save on req.body, add to db.json, then return new route
 app.post('/api/notes', (req, res)=> {
     //write to file 'fs'
-    console.log('hello')
-    fs.writeFile( './db/test.json', req.body, (err)=>{
+    res.send(req.body)
+    fs.writeFile( './db/test.json', JSON.stringify(req.body), (err)=>{
         if (err) 
         console.log(err); 
         else { 
@@ -32,9 +33,6 @@ app.post('/api/notes', (req, res)=> {
         console.log(fs.readFileSync("./db/test.json", "utf8")); 
     } 
 })})
-
-//req.body
-//
 
 
 //fetch request??
