@@ -4,6 +4,7 @@ const express = require('express')
 
 const app = express();
 const PORT = 3001;
+const uuidv1 = require('uuid/v1');
 
 // Sets up the Express app to handle data parsing
 app.use(express.json());
@@ -24,38 +25,19 @@ app.get('/api/notes', (req, res)=>{
 app.post('/api/notes', (req, res)=> {
     //write to file 'fs'
     res.send(req.body)
-    fs.writeFile( './db/test.json', JSON.stringify(req.body), (err)=>{
+    fs.writeFile( './db/db.json', JSON.stringify(req.body), (err)=>{
         if (err) 
         console.log(err); 
         else { 
         console.log("File written successfully\n"); 
         console.log("The written has the following contents:"); 
-        console.log(fs.readFileSync("./db/test.json", "utf8")); 
+        console.log(fs.readFileSync("./db/db.json", "utf8")); 
     } 
 })})
-
-
-//fetch request??
-// fetch('/api/animals', {
-//     method: 'POST',
-//     headers: {
-//       Accept: 'application/json',
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(animalObject)
-//   })
-//     .then(response => {
-//       if (response.ok) {
-//         return response.json();
-//       }
-//       alert('Error: ' + response.statusText);
-//     })
-//     .then(postResponse => {
-//       console.log(postResponse);
-//       alert('Thank you for adding an animal!');
-//     });
-
 
 app.listen(PORT, () => {
     console.log(`App listening on PORT ${PORT}`);
   })
+
+  //you want to do is read db,json and add the new note to the list and rewrite the file with the updated list
+  //you'll want to read the file and find the appropriate note with the matching id
