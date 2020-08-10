@@ -37,5 +37,7 @@ class Store {
         return this.getNotes()
             .then(notes => [...notes, newNote])
     }
-}
+};
 // more needed for class Store
+
+module.exports = Store;
