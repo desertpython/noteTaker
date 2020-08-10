@@ -36,6 +36,7 @@ class Store {
         const newNote = { title, text, id: uuid };
         return this.getNotes()
             .then(notes => [...notes, newNote])
+            
     }
 };
 // more needed for class Store
