@@ -33,11 +33,11 @@ class Store {
         if (!title || !text) {
             throw new Error("Note 'title' and 'text' cannot be blank!")
         }
-        const newNote = { title, text, id: uuid() };
+        const newNote = { title, text, id: uuid };
         return this.getNotes()
             .then(notes => [...notes, newNote])
     }
 };
 // more needed for class Store
 
-module.exports = Store;
+module.exports = new Store;
