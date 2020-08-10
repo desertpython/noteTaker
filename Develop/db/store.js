@@ -1,5 +1,7 @@
 const util = require("util");
 const fs = require("fs");
+const apiRoutes = require("./routes/apiroutes");
+const htmlRoutes = require("./routes/htmlroutes");
 
 const uuidv1 = require("uuid/v1");
 
@@ -9,7 +11,7 @@ const readFileAsync = util.promisify(fs.readFile);
 //call the util method promifisy() which is a callback
 //call fs to write file
 
-const writeFileAsync = util.promisify(fs.watchFile);
+const writeFileAsync = util.promisify(fs.writeFile);
 
 class Store {
     read() {

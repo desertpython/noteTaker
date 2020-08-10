@@ -7,10 +7,15 @@ const PORT = prcoess.env.PORT || 3001;
 const uuid = require('uuid');
 const db = require("./db/db");
 
+const apiRoutes = require("./routes/apiroutes");
+const htmlRoutes = require("./routes/htmlroutes");
+
 // Sets up the Express app to handle data parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('./public')); //might need to delete the ./ later
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
 
 // app.get('/', (req, res) => {
