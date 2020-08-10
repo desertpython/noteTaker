@@ -1,9 +1,7 @@
 const util = require("util");
 const fs = require("fs");
-const apiRoutes = require("./routes/apiroutes");
-const htmlRoutes = require("./routes/htmlroutes");
 
-const uuidv1 = require("uuid/v1");
+const uuid = require("uuid");
 
 const readFileAsync = util.promisify(fs.readFile);
 
@@ -24,10 +22,11 @@ class Store {
     return this.read().then(notes =>{
         let parsedNotes;
         try {
-            parsedNotes = ().concat
+            parsedNotes = [].concat(JSON.parse(notes));
         }
-        finally{}
-
+        catch (err) {
+            parsedNotes = [];
+          }
     })}
     addNote(){
     const {title , text} = note

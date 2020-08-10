@@ -3,7 +3,7 @@ const fs = require('fs')
 const express = require('express')
 
 const app = express();
-const PORT = prcoess.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 const uuid = require('uuid');
 const db = require("./db/db");
 
