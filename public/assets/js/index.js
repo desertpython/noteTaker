@@ -1,4 +1,4 @@
-alert('hello')
+
 var $noteTitle = $(".note-title");
 var $noteText = $(".note-textarea");
 var $saveNoteBtn = $(".save-note");
@@ -120,7 +120,7 @@ var renderNoteList = function(notes) {
       "<i class='fas fa-trash-alt float-right text-danger delete-note'>"
     );
     }
-    li.append(span, delBtn);
+    li.append(span, delBtn); // need to fix this
     noteListItems.push(li);
 
   $noteList.append(noteListItems);
@@ -128,6 +128,7 @@ var renderNoteList = function(notes) {
 
 // Gets notes from the db and renders them to the sidebar
 var getAndRenderNotes = function() {
+  
   return getNotes().then(function(data) {
     renderNoteList(data);
   });

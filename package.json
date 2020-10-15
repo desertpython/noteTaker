@@ -1,7 +1,6 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,5 +12,8 @@
     "express": "^4.16.4",
     "npm-watch": "^0.6.0",
     "uuid": "^8.3.0"
-  }
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "description": ""
 }
